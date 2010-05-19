@@ -2,7 +2,9 @@
   "name": "Chromac",
   "version": "0.0.1",
   "description": "Let's do this Safari style.",
-  "icon": "images/chromac.png",
+  "icons": {
+     "128": "images/chromac.png"
+  },
   "background_page": "chromac.html",
   "content_scripts": [{
      "all_frames": true,
@@ -10,6 +12,5 @@
      "matches": [ "http://*/*", "https://*/*" ],
      "run_at": "document_idle"
   }],
- "permissions": [ "bookmarks", "tabs", "http://*/", "https://*/" ]
-
+  "permissions": [ "bookmarks", "tabs", "http://*/", "https://*/" ]
 }

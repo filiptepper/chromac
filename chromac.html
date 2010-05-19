@@ -7,15 +7,16 @@
   <script type="text/javascript">
   chrome.extension.onRequest.addListener(
     function(request, sender, sendResponse) {
-      chrome.bookmarks.getTree(function(root){
+      chrome.bookmarks.getTree(function(root) {
         id = request.id - 1;
 
         if (root[0] && root[0].children[0] && root[0].children[0].children[id]) {
           chrome.tabs.getSelected(null, function(tab) {
-            chrome.tabs.update(tab.id, { "url": root[0].children[0].children[id].url});
+            chrome.tabs.update(tab.id, { "url": root[0].children[0].children[id].url });
           });
         }
       });
-    });
+    }
+  );
   </script>
 </html>
