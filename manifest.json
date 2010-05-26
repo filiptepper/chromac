@@ -1,6 +1,6 @@
 {
   "name": "Chromac",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Let's do this Safari style.",
   "icons": {
      "128": "images/chromac.png"
@@ -9,7 +9,7 @@
   "content_scripts": [{
      "all_frames": true,
      "js": [ "chromac.js" ],
-     "matches": [ "http://*/*", "https://*/*" ]
+      "matches": [ "http://*/*", "https://*/*" ]
   }],
   "permissions": [ "bookmarks", "tabs", "http://*/", "https://*/" ]
 }

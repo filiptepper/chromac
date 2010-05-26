@@ -9,11 +9,16 @@
     function(request, sender, sendResponse) {
       chrome.bookmarks.getTree(function(root) {
         id = request.id - 1;
+        new_tab = request.new_tab;
 
         if (root[0] && root[0].children[0] && root[0].children[0].children[id]) {
-          chrome.tabs.getSelected(null, function(tab) {
-            chrome.tabs.update(tab.id, { "url": root[0].children[0].children[id].url });
-          });
+          if (new_tab) {
+            chrome.tabs.create({ "url": root[0].children[0].children[id].url });
+          } else {
+            chrome.tabs.getSelected(null, function(tab) {
+              chrome.tabs.update(tab.id, { "url": root[0].children[0].children[id].url });
+            });
+          }
         }
       });
     }
